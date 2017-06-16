@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
 	<div class="container">
 		<h1>{{title}}</h1>
 	</div>
+	<master></master>
 	`,
 })
 export class AppComponent  { 

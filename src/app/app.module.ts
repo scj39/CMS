@@ -7,7 +7,7 @@ import { Detail } from './detail.component';
 
 @NgModule({
   imports:      [ BrowserModule ],
-  declarations: [ AppComponent ],
+  declarations: [ AppComponent, Master, Detail],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
