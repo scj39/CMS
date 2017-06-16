@@ -8,6 +8,10 @@ import { Student } from './student';
 	<div class="panel-heading clearfix">
 	<h3 class="panel-title pull-left">Student Information</h3>
 	<div class="btn-group pull-right">
+	<a class="btn btn-primary pull-right" href="#">
+	<i class="fa fa-pencil"></i>
+	Edit
+	</a>
 	</div>
 	</div>
 	<div class="modal-body">
