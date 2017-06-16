@@ -1,19 +1,7 @@
 import { Component } from '@angular/core'; 
 import { Student } from './student'; 
-
-const STUDENTS: Student[] =
-[{ name: 'Abey Smith', courses: [] },
-{ name: 'Doe Jones', courses: ['Biology', 'Physics']},
-{ name: 'Tamper Romper', courses: ['Physics']},
-{ name: 'Milly James', courses: ['Biology', 'Chemistry'] },
-{ name: 'Ed Bagratoni', courses: ['Biology', 'Theology'] },
-{ name: 'Teresa Karling', courses: ['Math', 'Theology'] },
-{ name: 'Carl Capet', courses: ['Theology'] },
-{ name: 'Ruby Commenos', courses: ['Philosophy'] },
-{ name: 'Alp Arslan', courses: ['Philosophy', 'Theology']},
-{ name: 'Selim Pasha', courses: ['Cooking']}]; 
-
-
+import { StudentService } from './student.service'; 
+import { OnInit } from '@angular/core'; 
 
 @Component({
 	selector: 'master', 
@@ -51,14 +39,27 @@ const STUDENTS: Student[] =
 	</div>
 	</div>
 	<detail [student]="selectedStudent"></detail>
-	`
+	`, 
+	providers: [StudentService]
 })
 
-export class Master{
-	students = STUDENTS; 
+export class Master implements OnInit{
+
+	constructor(private studentService: StudentService){}
+
+	students: Student[]; 
 	selectedStudent: Student; 
 
 	onSelect(student: Student){
 		this.selectedStudent = student; 
 	}
+
+	getStudents(): void{
+		this.students = this.studentService.getStudents(); 
+	}
+
+	ngOnInit(): void{
+		this.getStudents(); 
+	}
+
 }
