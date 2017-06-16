@@ -55,7 +55,7 @@ export class Master implements OnInit{
 	}
 
 	getStudents(): void{
-		this.students = this.studentService.getStudents(); 
+		this.studentService.getStudents().then(students => this.students = students); 
 	}
 
 	ngOnInit(): void{
