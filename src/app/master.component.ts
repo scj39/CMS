@@ -39,8 +39,7 @@ import { OnInit } from '@angular/core';
 	</div>
 	</div>
 	<detail [student]="selectedStudent"></detail>
-	`, 
-	providers: [StudentService]
+	`
 })
 
 export class Master implements OnInit{
@@ -55,7 +54,7 @@ export class Master implements OnInit{
 	}
 
 	getStudents(): void{
-		this.studentService.getStudents().then(students => this.students = students); 
+		this.students = this.studentService.getStudentsSpoof(); 
 	}
 
 	ngOnInit(): void{

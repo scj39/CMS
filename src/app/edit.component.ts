@@ -2,16 +2,20 @@ import { Component, Input } from '@angular/core';
 import { Student } from './student'; 
 
 @Component({
-	selector: 'detail', 
+	selector: 'edit', 
 	template: `
-	<div class="panel panel-default" *ngIf="student" [hidden]="editedStudent">
+	<div class="panel panel-default" *ngIf= "student">
 	<div class="panel-heading clearfix">
-	<h3 class="panel-title pull-left">Student Information</h3>
+	<h3 class="panel-title pull-left">Edit Student Information</h3>
 	<div class="btn-group pull-right">
-	<a class="btn btn-primary pull-right" href="#" (click)= onSelect(student)>
-	<i class="fa fa-pencil"></i>
-	Edit
-	</a>
+	<button class="btn btn-danger">
+	<i class="fa fa-times"></i>
+	Cancel
+	</button>
+	<button class="btn btn-success">
+	<i class="fa fa-check"></i>
+	Save
+	</button>
 	</div>
 	</div>
 	<div class="modal-body">
@@ -24,26 +28,18 @@ import { Student } from './student';
 	</div>
 	<div class="form-group">
 	<label class="col-xs-3 control-label">Courses</label>
-	<div class="col-xs-9" *ngFor= "let course of student.courses">
 	<div class="col-xs-9">
-	<tr><td>{{course}}</td></tr>
-	</div>
+	<textarea class="form-control" rows="6">{{student.courses}}</textarea>
 	</div>
 	</div>
 	</form>
 	</div>
+	<div class="panel-footer">
 	</div>
-	<edit [student]="editedStudent"></edit>
-
+	</div>
 	`
 })
 
-export class Detail{
+export class EditComponent {
 	@Input() student: Student; 
-	editedStudent : Student; 
-
-	onSelect(student: Student){
-		this.editedStudent = student; 
-	}
-
 }

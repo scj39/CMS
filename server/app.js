@@ -1,16 +1,12 @@
-const express = require('express')
-const app = express()
+const express = require('express'); 
+const app = express(); 
+var http = require('http');
 
 app.get('/', function (req, res) {
 	res.send('Hello World!')
 })
 
-var server = app.listen(3600, function(){
-	var host = server.address().address; 
-	var port = server.address().port; 
-	console.log('listening at 3600', host, port); 
-}); 
-
+var server = http.createServer(app).listen(3600, '127.0.0.1');
 
 //note that the mysql database is actually at localhost://4000
 var mysql = require('mysql'); 
