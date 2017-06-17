@@ -11,6 +11,8 @@ var server = app.listen(3600, function(){
 	console.log('listening at 3600', host, port); 
 }); 
 
+
+//note that the mysql database is actually at localhost://4000
 var mysql = require('mysql'); 
 var connection = mysql.createConnection({
 	host     : 'localhost',
@@ -26,9 +28,5 @@ connection.connect(function(err) {
   }
 }); 
 
-connection.query('SELECT 1 + 1 AS solution', function (err, rows, fields) {
-	if (err) throw err; 
-	console.log('The solution is: ', rows[0].solution); 
-}); 
-
+//gracefully ends the connection
 connection.end(); 
